@@ -4,15 +4,15 @@
 
 ---
 
-@title[what's it]
+@title[fundamental]
 
-* An open spec for a flexible API layer.
-* A data query language.
+In terms of what data matters... Who knows better? The server or the client?
 
 ---
 
 @title[how it works]
 
+### Ask for what you need, get exactly that
 You build a GraphQL query and send it to the server.
 The server gives you back a JSON
 
@@ -20,6 +20,23 @@ The server gives you back a JSON
 
 ---
 
+@title[what's it]
+
+* An open spec for a flexible API layer.
+* A data query language.
+
+---
+
 @title[advantages]
 
+* Avoid several roundtrips, you can get many resources in a single request.
+* No need for ad-hoc endpoints
+* GraphQL uses types to ensure Apps only ask for what’s possible and provide clear and helpful errors.
+
+---
+
+@title[more_advantages]
+
+* Evolve your API without versions
 * Can be built on top of your existing infrastructure: REST, SOAP, existing databases, or anything else.
+* A lot of tools
