@@ -2,9 +2,14 @@
 
 # GraphQL
 
+Disclaimer: This is not a technical thing, just present a problem and a possible soluction. Also I'm not and expert and this need more work. 
+
 ---
 
 @title[fundamental]
+
+
+### This starts with a simple questions.
 
 In terms of what data matters... Who knows better? The server or the client?
 
@@ -39,6 +44,8 @@ The server gives you back a JSON.
 
 @title[advantages]
 
+### Advantages
+
 * Avoid several roundtrips, you can get many resources in a single request.
 * No need for ad-hoc endpoints.
 * GraphQL uses types to ensure Apps only ask for what’s possible and provide clear and helpful errors.
@@ -47,6 +54,8 @@ The server gives you back a JSON.
 
 @title[more_advantages]
 
-* Evolve your API without versions
+### More advantages
+
+* Evolve your API without versions (you can still deprecate things).
 * Can be built on top of your existing infrastructure: REST, SOAP, existing databases, or anything else.
-* A lot of tools
+* A lot of tools.
