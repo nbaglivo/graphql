@@ -2,14 +2,14 @@
 
 # GraphQL
 
-Disclaimer: This is not a technical thing, just present a problem and a possible soluction. Also I'm not and expert and this need more work. 
+Disclaimer: This is not a technical thing, just presents a problem and a possible solution. Also I'm not and expert and this need more work. 
 
 ---
 
 @title[fundamental]
 
 
-### This starts with a simple questions.
+### This starts with a simple question:
 
 In terms of what data matters... Who knows better? The server or the client?
 
