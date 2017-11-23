@@ -14,7 +14,7 @@ In terms of what data matters... Who knows better? The server or the client?
 
 Take netflix for example.
 
-![GitHub Logo](https://www.google.de/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwivnZmD-NTXAhVNJVAKHdXZA-4QjRwIBw&url=http%3A%2F%2Fnetflix397.rssing.com%2Fchan-4321264%2Fall_p9.html&psig=AOvVaw0nFS78itG9qSqTAWihx3W4&ust=1511534784246906)
+![GitHub Logo](https://tctechcrunch2011.files.wordpress.com/2015/05/screen-shot-2015-05-20-at-11-51-30-am.png)
 
 ---
 
