@@ -59,3 +59,11 @@ The server gives you back a JSON.
 * Evolve your API without versions (you can still deprecate things).
 * Can be built on top of your existing infrastructure: REST, SOAP, existing databases, or anything else.
 * A lot of tools.
+
+---
+
+@title[resources]
+
+### Resources
+
+* Four years of GraphQL: https://www.youtube.com/watch?v=zVNrqo9XGOs
