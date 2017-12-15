@@ -42,20 +42,28 @@ The server gives you back a JSON.
 
 ---
 
-@title[code_1]
+@title[lets_code]
 
-### Let's do some coding
+### Let's code something
 
 ---
 
-@title[code_1]
+@title[setup_up]
+
+### Setup the server
+
+We're going to use Express
+
+---
+
+@title[setting_server]
 
 ```
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import mongoose from 'mongoose';
 
-import schema from './graphql';
+import schema from './graphql/schema';
 
 var app = express();
 
@@ -66,10 +74,43 @@ app.use('/graphql', graphqlHTTP(req => ({
 })));
 ```
 
-@[2, 4]
-@[5, 4]
-@[9, 13]
+@[2]
+@[5]
+@[9, 10, 11, 12, 13]
 
+
+---
+
+@title[schema_definition]
+
+### GraphQL schema
+
+A GraphQL schema is nothing else than a group of queries and mutations.
+
+
+@title[schema_definition_code]
+
+```
+// ./graphql/schema.js
+export default new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+      ...userQueries
+    },
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+      ...userMutations,
+    },
+  }),
+});
+```
+
+@[2]
+@[3, 4, 6, 7]
+@[9, 11, 12, 13]
 
 ---
 
@@ -98,3 +139,4 @@ app.use('/graphql', graphqlHTTP(req => ({
 ### Resources
 
 * Four years of GraphQL: https://www.youtube.com/watch?v=zVNrqo9XGOs
+* Learn GraphQL: http://graphql.org/learn/
