@@ -162,7 +162,7 @@ export {
 ### Types
 
 * Are used to ensure Apps only ask for what’s possible.
-* You can perform validation you can provide clear and helpful errors.
+* You can perform validation yand provide clear and helpful errors.
 * You can derive them from Mongoose with some extra package. (probably not the best idea though)
 
 ---
