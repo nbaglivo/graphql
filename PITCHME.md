@@ -250,11 +250,8 @@ var UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     name: { 
-      type: GraphQLString, 
-      deprecationReason: 'We split up the name into two'
-    },
-    firstname: { type: GraphQLString },
-    lastname: { type: GraphQLString }
+      type: GraphQLString
+    }
   }
 })
 ```
