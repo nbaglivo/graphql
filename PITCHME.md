@@ -214,7 +214,7 @@ You will get:
 {
   "errors": [
     {
-      "message": "Cannot query field \"isCompleted\" on type \"Character\".",
+      "message": "Cannot query field \"isCompleted\" on type \"Todo\".",
       "locations": [
         {
           "line": 4,
@@ -234,7 +234,7 @@ You will get:
 
 Whaaaat?
 
-<img src="https://media.giphy.com/media/5TC1o3oRE68Mg/giphy.gif" width="100" height="150" />
+<img src="https://media.giphy.com/media/5TC1o3oRE68Mg/giphy.gif" width="200" height="300" />
 
 ---
 
@@ -279,6 +279,13 @@ var UserType = new GraphQLObjectType({
 @[6](Add deprecationReason)
 @[8](Add field firstname)
 @[9](Add field lastname)
+
+---
+
+
+@title[demo]
+
+### Quick demo time with GraphiQL
 
 ---
 
