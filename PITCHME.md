@@ -58,6 +58,7 @@ We're going to use Express
 
 @title[setting_server]
 
+
 ```
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
@@ -94,6 +95,7 @@ A GraphQL schema is nothing else than a group of queries and mutations.
 
 @title[schema_definition_code]
 
+
 ```
 // ./graphql/schema.js
 export default new GraphQLSchema({
@@ -122,6 +124,7 @@ export default new GraphQLSchema({
 
 @title[schema_fields]
 
+
 ```
 // ./schema/todo/queries.js
 export {
@@ -149,7 +152,8 @@ export {
 @[5]
 @[6, 7, 8, 9, 10]
 @[12, 13, 14, 15, 16, 17, 18, 19]
----.
+
+---
 
 @title[advantages]
 
