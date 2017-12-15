@@ -42,6 +42,35 @@ The server gives you back a JSON.
 
 ---
 
+@title[code_1]
+
+### Let's do some coding
+
+---
+
+@title[code_1]
+
+```
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
+import mongoose from 'mongoose';
+
+import schema from './graphql';
+
+var app = express();
+
+// GraphqQL server route
+app.use('/graphql', graphqlHTTP(req => ({
+  schema,
+  pretty: true
+})));
+```
+
+@[2, 4]
+
+
+---
+
 @title[advantages]
 
 ### Advantages
