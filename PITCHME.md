@@ -82,16 +82,19 @@ app.use('/graphql', graphqlHTTP(req => ({
 
 ---
 
-@title[schema_definition]
+@title[schema]
 
 ### GraphQL schema
 
-A GraphQL schema is nothing else than a group of queries and mutations.
+A GraphQL schema is nothing else than a group of queries, mutations and subscriptions.
 
-* Query: Things we can query for, dah.
+* Queries: Things we can query for, dah.
 * Mutations: Things that we can modify.
+* Subscriptions: Things that I can subscribe of (so I can get push messages and react instead of pooling)
 
+---
 
+@title[schema_definition]
 
 
 ```
@@ -258,6 +261,8 @@ var UserType = new GraphQLObjectType({
 
 ... and we want to deprecate the name field in favour of firstname and lastname
 
+---
+
 @title[versions]
 
 We can do this:
@@ -307,3 +312,46 @@ var UserType = new GraphQLObjectType({
 
 * Four years of GraphQL: https://www.youtube.com/watch?v=zVNrqo9XGOs
 * Learn GraphQL: http://graphql.org/learn/
+* Case studies: https://www.graphql.com/case-studies/
+
+---
+
+@title[bonus_track]
+
+### Bonus track: Angular integration with Apollo
+
+<img src="https://media.giphy.com/media/l0MYHvlYiBUSxCYCY/giphy.gif" width="250" height="350" />
+
+---
+
+@title[bonus_track_code]
+
+```
+const FeedQuery = gql`
+  query Feed {
+    feed {
+      createdAt
+      score
+    }
+  }
+`;
+
+@Component({
+  template: `
+    <ul *ngFor="let entry of data | async">
+      Score: {{entry.score}}
+    </ul>
+  `
+})
+class FeedComponent implements OnInit {
+  data: Observable<any>;
+
+  constructor(private apollo: Apollo) {}
+
+  ngOnInit() {
+    this.data = this.apollo.watchQuery({ query: FeedQuery })
+      .valueChanges
+      .map(({data}) => data.feed);
+  }
+}
+```
