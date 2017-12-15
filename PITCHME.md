@@ -91,9 +91,7 @@ A GraphQL schema is nothing else than a group of queries and mutations.
 * Query: Things we can query for, dah.
 * Mutations: Things that we can modify.
 
----
 
-@title[schema_definition_code]
 
 
 ```
@@ -151,8 +149,136 @@ export {
 @[3]
 @[4]
 @[5]
-@[6, 7, 8, 9, 10]
-@[12, 13, 14, 15, 16, 17, 18, 19]
+@[6, 7, 8, 9]
+@[11, 12, 13, 14, 15, 16, 17, 18]
+
+---
+
+@title[schema_types]
+
+### Types
+
+* Are used to ensure Apps only ask for what’s possible.
+* You can perform validation you can provide clear and helpful errors.
+* You can derive them from Mongoose with some extra package. (probably not the best idea though)
+
+---
+
+@title[schema_types_definition]
+
+```
+// ./schema/todo/type.js
+export default todoType = new GraphQLObjectType({
+  name: 'todo',
+  description: 'todo item',
+  fields: () => ({
+    id: {
+      type: (GraphQLInt),
+      description: 'The id of the todo.',
+    },
+    item: {
+      type: GraphQLString,
+      description: 'The name of the todo.',
+    },
+    completed: {
+      type: GraphQLBoolean,
+      description: 'Completed todo? '
+    }
+  })
+});
+```
+
+---
+
+@title[va;idation]
+
+### Validation
+
+If you perform an invalid query like this:
+
+```
+{
+  todo {
+    isCompleted // The real name is "completed"
+  }
+}
+```
+
+---
+
+@title[va;idation_error]
+
+You will get:
+
+```
+{
+  "errors": [
+    {
+      "message": "Cannot query field \"isCompleted\" on type \"Character\".",
+      "locations": [
+        {
+          "line": 4,
+          "column": 5
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+@title[versions]
+
+### GraphQL has no version notion.
+
+Whaaaat?
+
+<img src="https://media.giphy.com/media/5TC1o3oRE68Mg/giphy.gif" width="100" height="150" />
+
+---
+
+@title[versions]
+
+Suppose we have this
+
+```
+var UserType = new GraphQLObjectType({
+  name: 'User',
+  fields: {
+    name: { 
+      type: GraphQLString, 
+      deprecationReason: 'We split up the name into two'
+    },
+    firstname: { type: GraphQLString },
+    lastname: { type: GraphQLString }
+  }
+})
+```
+
+... and we want to deprecate the name field in favour of firstname and lastname
+
+@title[versions]
+
+We can do this:
+
+```
+var UserType = new GraphQLObjectType({
+  name: 'User',
+  fields: {
+    name: { 
+      type: GraphQLString,
+      deprecationReason: 'We split up the name into two'
+    },
+    firstname: { type: GraphQLString },
+    lastname: { type: GraphQLString }
+  }
+})
+```
+
+@[6](Add deprecationReason)
+@[8](Add field firstname)
+@[9](Add field lastname)
 
 ---
 
@@ -162,15 +288,7 @@ export {
 
 * Avoid several roundtrips, you can get many resources in a single request.
 * No need for ad-hoc endpoints.
-* GraphQL uses types to ensure Apps only ask for what’s possible and provide clear and helpful errors.
-
----
-
-@title[more_advantages]
-
-### More advantages
-
-* Evolve your API without versions (you can still deprecate things).
+* Evolve your API without versions which makes devilering features faster
 * Can be built on top of your existing infrastructure: REST, SOAP, existing databases, or anything else.
 * A lot of tools.
 
