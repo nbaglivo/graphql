@@ -87,6 +87,10 @@ app.use('/graphql', graphqlHTTP(req => ({
 
 A GraphQL schema is nothing else than a group of queries and mutations.
 
+* Query: Things we can query for, dah.
+* Mutations: Things that we can modify.
+
+---
 
 @title[schema_definition_code]
 
@@ -96,23 +100,56 @@ export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
-      ...userQueries
+      ...userQueries,
+      ...todoQueries
     },
   }),
   mutation: new GraphQLObjectType({
     name: 'Mutation',
     fields: {
       ...userMutations,
+      ...todoPostMutations
     },
   }),
 });
 ```
 
 @[2]
-@[3, 4, 6, 7]
-@[9, 11, 12, 13]
+@[3, 4, 6, 7, 8]
+@[9, 11, 12, 13, 14]
 
 ---
+
+@title[schema_fields]
+
+```
+// ./schema/todo/queries.js
+export {
+  todo: {
+    type: new GraphQLList(todoType),
+    args: {
+      id: {
+        name: 'itemId',
+        type: new GraphQLNonNull(GraphQLInt)
+      }
+    },
+    resolve: (root, { id }, source, fieldASTs) => {
+      let projections = getProjection(fieldASTs);
+      return new Promise((resolve, reject) => {
+          ToDoMongo.find({ id }, projections,(err, todos) => {
+              err ? reject(err) : resolve(todos)
+          });
+      });
+    }
+  }
+}
+
+@[3]
+@[4]
+@[5]
+@[6, 7, 8, 9, 10]
+@[12, 13, 14, 15, 16, 17, 18, 19]
+---.
 
 @title[advantages]
 
