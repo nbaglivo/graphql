@@ -2,7 +2,7 @@
 
 # GraphQL
 
-Disclaimer: This is not a technical thing, just presents a problem and a possible solution. Also I'm not and expert and this need more work. 
+Disclaimer: I'm not and expert and this need more work. 
 
 ---
 
